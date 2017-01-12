@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+require('dotenv-safe').config();
+require('babel-register');
+
+require('../src').listen(process.env.PORT);

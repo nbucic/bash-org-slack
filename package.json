@@ -1,0 +1,18 @@
+{
+  "name": "slackbot",
+  "version": "1.0.0",
+  "description": "Demo slack bot which will randomly fetch quotes from www.bash.org",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikola Bucic",
+  "license": "MIT",
+  "dependencies": {
+    "babel-register": "^6.18.0",
+    "body-parser": "^1.15.2",
+    "cheerio": "^0.22.0",
+    "dotenv-safe": "^4.0.3",
+    "express": "^4.14.0"
+  }
+}
