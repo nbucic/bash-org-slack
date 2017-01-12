@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 require('dotenv-safe').config();
 require('babel-register');
-
-require('../src').listen(process.env.PORT);
+let ip;
+if(process.env.NODE_ENV === 'production') {
+    ip = require('ip').address();
+}
+require('../src').listen(process.env.PORT, ip);
