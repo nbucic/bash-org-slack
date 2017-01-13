@@ -45,4 +45,24 @@ app.post('/slack/receive', (req, res) => {
     }
 });
 
+app.post('/slack/oauth', (req, res) => {
+    let data =
+        {
+            form: {
+                client_id: process.env.CLIENT_ID,
+                client_secret: process.env.CLIENT_SECRET,
+                code: req.query.code
+            }
+        };
+
+    const request = require('request');
+    request.post('https://slack.com/api/oauth.access', data, (err, res, body) => {
+        if (!err && res.statusCode == 200) {
+            let team = JSON.parse(body).team.domain;
+            res.redirect('https://' + team + '.slack.com');
+        }
+    })
+
+});
+
 module.exports = server;
